@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<book>
+
+@{
+    foreach (var item in Model)
+    {
+        @Html.Raw("<li>" + " - " + item.author + " - " + item.title +  "- pages -> " + item.pages + "- release year ->" + item.releaseYear + "</li>")
+        ;
+    }
+}
+<select> 
+    <option>EXCEL</option>
+    <option>CSV</option>
+</select>
+<button></button>
