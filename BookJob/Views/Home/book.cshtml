@@ -8,8 +8,25 @@
         ;
     }
 }
-<select> 
-    <option>EXCEL</option>
-    <option>CSV</option>
-</select>
-<button></button>
+@* create table book(
+id int identity,
+title nvarchar(max),
+author nvarchar(max),
+pages int,
+releaseYear nvarchar(max)
+)
+
+insert into book (title, author, pages, releaseYear) values ('Dance of the Dead', 'Kennan Crowcombe', 361, 1993);
+insert into book (title, author, pages, releaseYear) values ('Bliss (Mutluluk)', 'Feodora Yuryev', 994, 2005);
+insert into book (title, author, pages, releaseYear) values ('Far Out Man', 'Kathryne Alflatt', 180, 2012);
+insert into book (title, author, pages, releaseYear) values ('Common Thread, A (a.k.a. Sequins) (Brodeuses)', 'Michael Fann', 453, 1984);
+insert into book (title, author, pages, releaseYear) values ('Pianist, The', 'Lianna Boner', 588, 2003);
+
+alter proc pFindBookByName
+@name nvarchar(max)
+as
+select * from book where title like '%' + @name+ '%'
+if (@name = ' ')
+select * from book
+
+exec pFindBookByName 'Dance' *@
